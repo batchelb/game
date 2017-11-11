@@ -1,0 +1,46 @@
+.entry-title{
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+}
+.start-game-container{
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .start-game{
+        display: flex;
+        flex-direction: column;
+        border: solid black 1px;
+        padding: 25px 50px;
+        border-radius: 3px;
+        box-shadow: 3px 3px 5px 6px #ccc;
+
+        .start-game-form{
+            display: flex;
+            justify-content: space-between;
+            .left-side {
+                margin-right: 50px;
+                >div{
+                    margin-bottom:24px
+                }
+            }
+            .tools-container{
+                display: flex;
+                .tools{
+                    display:flex;
+                    flex-direction: column;
+                    margin-right: 15px;
+                    mat-checkbox{
+                        margin: 10px 7px
+                    }
+                }
+            }
+        }
+        .button {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}

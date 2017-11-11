@@ -1,0 +1,49 @@
+<!-- <div class="entry-title">
+	<h1>Adventure Life Battle</h1>
+</div> -->
+<div class="start-game-container">
+	<div class="start-game">
+		<h2>Start Game</h2>
+		<form class="start-game-form">
+			<div class="left-side">
+				<div>
+					<mat-form-field class="example-full-width">
+						<input matInput placeholder="Name" [(ngModel)]="newCharacter.name" name="name">
+					</mat-form-field>
+				</div>
+				<div>
+					<mat-form-field>
+						<mat-select placeholder="Race" [(ngModel)]="newCharacter.race" name="race">
+							<mat-option *ngFor="let race of ['human', 'elf', 'dwarf']"  [value]="race">
+								{{race | capitalize}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<div>
+					<mat-form-field>
+						<mat-select placeholder="Class" name="class" [(ngModel)]="newCharacter.class">
+							<mat-option *ngFor="let class of ['padalin', 'thief', 'fighter']"  [value]="class">
+								{{class | capitalize}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+			</div>
+			<div>
+				<span>Starting Tools (Choose 3): </span>
+				<div class="tools-container">
+					<div class="tools">
+						<mat-checkbox *ngFor="let tool of gameService.tools.slice(0,5)" [disabled]="checkboxDisabled(tool)" (click)="updateCheckedList(tool)" [name]="tool">{{tool | capitalize}}</mat-checkbox>
+					</div>
+					<div class="tools">
+						<mat-checkbox *ngFor="let tool of gameService.tools.slice(5)" [disabled]="checkboxDisabled(tool)" (click)="updateCheckedList(tool)" [name]="tool">{{tool | capitalize}}</mat-checkbox>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="button">
+			<button mat-raised-button color="primary" [disabled]="disabled()" (click)=save()>Start</button>
+		</div>
+	</div>
+</div>
