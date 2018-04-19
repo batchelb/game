@@ -1,0 +1,77 @@
+@import '../../styles.less';
+.lower-container{
+    display: flex;
+    .info-container{
+        padding: 20px;
+        flex: 1 1 90%;
+        .row {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .stats, .tools, .equipment, .supplies, .skills, .living{
+            border: @black 1px solid;
+            box-shadow: 2px 2px 2px 2px #888888;
+            background: @white;
+            border-radius:2px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            margin-left: 10px;
+            min-width: 200px;
+            width: 33%;
+            .top-card{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                div {
+                    margin: 10px 0px;
+                    padding-right: 10px;
+                }
+            }
+            div {
+                font-size: 18px;
+            }
+        }
+        .card-content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            margin-right: 10px;
+            div>div{
+                margin-bottom: 20px;
+            }
+            .right-card{
+                text-align: right;
+                div:last-child{
+                    align-self: flex-end;
+                }
+            }
+        }
+        .tools {
+            width: 20%;
+            height:350px;
+            .title {
+                margin:10px 0px;
+            }
+            .tool{
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+        }
+        .supplies {
+            width: 80%;
+            height:350px;
+        }
+    }
+    .button-container {
+        flex: 1 1 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding:20px;
+        >div{
+            margin-top: 20px;
+        }
+    }
+}

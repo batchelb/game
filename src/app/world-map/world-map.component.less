@@ -1,0 +1,73 @@
+@import '../../styles.less';
+.world-map-container{
+    display: flex;
+    height: 100%;
+    .center {
+    display: flex;
+    justify-content: center;
+    }
+    .space-between{
+        display: flex;
+        justify-content: space-between;
+    }
+    .map{
+        flex-basis: 70%;
+        height: 100%;
+        border: 2px @white solid;
+        .row{
+            display: flex;
+            height: 5%;
+            width: 100%;
+            .tile{
+                width: 5%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .movement{
+        display: flex;
+        justify-content: space-between;
+        div{
+            margin: 5px 3px;
+        }
+    }
+    .left-panel {
+        flex-basis: 30%;
+        display: flex;
+        align-items: center;
+        >div{
+            margin-bottom: 100px;
+            width:100%;
+        }
+    }
+    .move-panel{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        .control-stick {
+            width: 200px;
+            height: 200px;
+            margin: 50px 0px;
+            border-radius: 200px;
+            background: white;
+            >div{
+                height: 100/3%;
+                &:nth-child(2){
+                    display: flex;
+                    align-items: center;
+                }
+                &:last-child{
+                    display: flex;
+                    align-items: flex-end;
+                }
+            }
+        }
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-around;
+    }
+}

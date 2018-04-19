@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../game.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-world-map',
@@ -7,9 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorldMapComponent implements OnInit {
 
-  constructor() { }
+  constructor(public gameService: GameService) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

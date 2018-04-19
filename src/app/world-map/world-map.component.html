@@ -1,21 +1,36 @@
 <div class="world-map-container">
-	<div class="movement">Movement Cost/Energy Remaining</div>
 	<div class="map">
-		Squares and Squares
-		Desert
-		Moutain
-		Shallow Water
-		Deep Water
-		Plain
-		Forest
-		Deep Forest
-		+Temple
+		<div class="row" *ngFor="let row of gameService.character.worldMap; let rowIndex = index">
+			<div class="tile" [style.background]="tile.currentColor" *ngFor="let tile of row; let colIndex = index">
+				<span>{{gameService.character.locationY === rowIndex && gameService.character.locationX === colIndex ? 'X' : ''}}</span>
+			</div>
+		</div>
 	</div>
-	<div class="move-panel">
-		up
-		right
-		left
-		down
-		enter
+	<div class="left-panel">
+		{{gameService.character.supplies | json}}
+		<div>
+			<div class="movement">
+				<div>Movement cost: 2</div>
+				<div>Energy Remaining: {{gameService.character.energy}}</div>
+			</div>
+			<div class="move-panel">
+				<div class="control-stick">
+					<div class="center">
+						<i class="material-icons" (click)="gameService.character.move('locationY',-1)">keyboard_arrow_up</i>
+					</div>
+					<div class="space-between">
+						<i class="material-icons" (click)="gameService.character.move('locationX',-1)">keyboard_arrow_left</i>
+						<i class="material-icons" (click)="gameService.character.move('locationX',1)">keyboard_arrow_right</i>
+					</div>
+					<div class="center">
+						<i class="material-icons" (click)="gameService.character.move('locationY',1)">keyboard_arrow_down</i>
+					</div>
+				</div>
+			</div>
+			<div class="buttons">
+				<button mat-raised-button>Enter</button>
+				<button mat-raised-button (click)="gameService.explore()">Explore</button>
+			</div>
+		</div>
 	</div>
 </div>

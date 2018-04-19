@@ -3,7 +3,7 @@
 </div> -->
 <div class="start-game-container">
 	<div class="start-game">
-		<h2>Start Game</h2>
+		<h2 class="title">Start Game</h2>
 		<form class="start-game-form">
 			<div class="left-side">
 				<div>
@@ -34,10 +34,10 @@
 				<span>Starting Tools (Choose 3): </span>
 				<div class="tools-container">
 					<div class="tools">
-						<mat-checkbox *ngFor="let tool of gameService.tools.slice(0,5)" [disabled]="checkboxDisabled(tool)" (click)="updateCheckedList(tool)" [name]="tool">{{tool | capitalize}}</mat-checkbox>
+						<mat-checkbox *ngFor="let tool of gameService.toolsList.slice(0,5)" [disabled]="checkboxDisabled(tool)" (click)="updateCheckedList(tool)" [name]="tool">{{tool | capitalize}}</mat-checkbox>
 					</div>
 					<div class="tools">
-						<mat-checkbox *ngFor="let tool of gameService.tools.slice(5)" [disabled]="checkboxDisabled(tool)" (click)="updateCheckedList(tool)" [name]="tool">{{tool | capitalize}}</mat-checkbox>
+						<mat-checkbox *ngFor="let tool of gameService.toolsList.slice(5)" [disabled]="checkboxDisabled(tool)" (click)="updateCheckedList(tool)" [name]="tool">{{tool | capitalize}}</mat-checkbox>
 					</div>
 				</div>
 			</div>

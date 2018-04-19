@@ -1,4 +1,33 @@
-.game-holder {
-    height: 97vh;
-    width:100vw;
+@import '../styles.less';
+.character-info {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: url(https://cdn.pixabay.com/photo/2017/04/24/05/48/forest-2255569_960_720.jpg);
+    color: @white;
+    font-size: 18px;
+    border-bottom: #7c713c 2px solid;
+    background-size: cover;
+    height: 100px;
+}
+.night {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left:0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    transition: visibility 0s, opacity 2s ease-in;
+    opacity: 0;
+}
+.game {
+    height: calc(~"100% - 102px")
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 1;
 }

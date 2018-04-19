@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../game.service';
 import { Character } from '../character.model';
+import { Router } from '@angular/router';
+import * as _ from 'lodash';
+
 @Component({
 	selector: 'app-start-game',
 	templateUrl: './start-game.component.html',
@@ -8,7 +11,8 @@ import { Character } from '../character.model';
 })
 export class StartGameComponent implements OnInit {
 
-	constructor(public gameService: GameService) { }
+	constructor(public gameService: GameService,
+				private router:Router) { }
 
 	public newCharacter = new Character()
 	public selectedTools = [];
@@ -20,7 +24,14 @@ export class StartGameComponent implements OnInit {
 		return this.selectedTools.length !== 3;
 	}
 	save() {
-		this.newCharacter.tools = this.selectedTools;
+		this.newCharacter.toolsList.forEach((tool)=>{
+			this.newCharacter[tool.name]= _.includes(this.selectedTools,tool.name) ? 'bronze' : 'standard'
+		});
+		this.newCharacter.equipmentList.forEach((equipment)=>{
+			this[equipment.name] =_.includes(this.selectedTools,equipment.name) ? 'bronze' : 'standard';
+		});
+		this.gameService.character = this.newCharacter;
+		this.router.navigate(['character']);
 	}
 
 	updateCheckedList(tool) {

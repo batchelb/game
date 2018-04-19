@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  firebase: {
+    apiKey: 'AIzaSyBmYGfO4dvdlCOdX62gtgQMTVwwqtxevn4',
+    authDomain: 'game-batchelb.firebaseapp.com',
+    databaseURL: 'https://game-batchelb.firebaseio.com/',
+    projectId: 'game-batchelb',
+    storageBucket: 'game-batchelb.appspot.com"',
+    messagingSenderId: '33022761481'
+  }
 };

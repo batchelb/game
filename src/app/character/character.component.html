@@ -1,55 +1,92 @@
 <div class="day-config-container">
-	<div class="character-info">Name/Race/Energy Remaining/Class/Health Remaining</div>
-	<div class="stats">
-		Health
-		Strength
-		Speed
-		Skill
-	</div>
-	<div class="tools">
-		Can
-		Pick Axe
-		Wood Axe
-		Pole
-		Hoe
-	</div>
-	<div class="equipment">
-		Armor
-		Sword
-		Shield
-		Bow
-	</div>
-	<div class="supplies">
-		Food
-		Water?
-		Bronze Ore
-		Iron Ore
-		Coal Ore
-		Blakeite Ore
-		Stone
-		Wood
-		String
-		Health Potion
-		Energy Potion
-		Health Herbs
-		Energy Herbs
-		Animals?
-	</div>
-	<div class="craftables">
-		boat
-		house
-		wagon
-	</div>
-	<div class="do-ations">
-		<button>Do Action</button>
-	</div>
-	<div class="travel">
-		<button>Travel</button>
-	</div>
-	<div class="see-map">
-		<button>See Map</button>
-	</div>
-	<div class="sleep">
-		<button>Sleep</button>
+	<div class="lower-container">
+		<div class="info-container">
+			<div class="row">
+				<div class="living">
+					<div class="top-card">
+						<div class="title">Living</div>
+					</div>
+					<div class="card-content-container">
+						<div class="left-card">
+							<div><b>Name:</b> {{gameService.character.name}}</div>
+							<div><b>Class:</b> {{gameService.character.class}}</div>
+							<div><b>Race:</b> {{gameService.character.race}}</div>
+						</div>
+						<div class="right-card">
+							<div><b>Health Left:</b> {{gameService.character.health}}</div>
+							<div><b>Hours Left:</b> {{gameService.character.energy}}</div>
+							<div><b>Food:</b> 16</div>
+						</div>
+					</div>
+				</div>
+				<div class="stats" (click)="openDialog('attributes')">
+					<div class="top-card">
+						<div class="title">Stats</div>
+						<div class="normal-text"><b>Points to Allocate:</b> {{gameService.character.attributePoints}}</div>
+					</div>
+					<div class="card-content-container">
+						<div class="left-card">
+							<div><b>Constitution:</b> {{gameService.character.attributes.constitution}}</div>
+							<div><b>Strength:</b> {{gameService.character.attributes.strength}}</div>
+						</div>
+						<div class="right-card">
+							<div><b>Speed:</b> {{gameService.character.attributes.speed}}</div>
+							<div><b>Skill:</b> {{gameService.character.attributes.skill}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="skills" (click)="openDialog('skills')">
+					<div class="top-card">
+						<div class="title">Skills</div>
+						<div class="normal-text"><b>Points to Allocate:</b>  {{gameService.character.skillPoints}}</div>
+					</div>
+					<div class="card-content-container">
+						<div class="left-card">
+							<div *ngFor="let skill of gameService.character.skillsList.slice(0,3)"><b>{{skill.name + ': ' | capitalize}}</b> {{skill.value}}</div>
+						</div>
+						<div class="right-card">
+							<div *ngFor="let skill of gameService.character.skillsList.slice(3)"><b>{{skill.name + ': ' | capitalize}}</b> {{skill.value}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="equipment" (click)="openDialog('equipment')">
+					<div class="top-card">
+						<div class="title">Equipment</div>
+					</div>
+					<div class="card-content-container">
+						<div class="left-card">
+							<div *ngFor="let equipment of gameService.character.equipmentList.slice(0,2)"><b>{{equipment.name + ': ' | capitalize}}</b> {{equipment.type | capitalize}}</div>
+						</div>
+						<div class="right-card">
+							<div *ngFor="let equipment of gameService.character.equipmentList.slice(2)"><b>{{equipment.name + ': ' | capitalize}}</b> {{equipment.type | capitalize}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="tools">
+					<div class="title">Tools</div>
+					<div  class="tool" *ngFor="let tool of gameService.character.toolsList"><b>{{tool.name + ': ' | capitalize}}</b> {{tool.type | capitalize}}</div>
+				</div>
+				<div class="supplies">
+					<h2>Supplies</h2>
+					<div *ngFor="let supply of gameService.character.supplies">{{supply}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="button-container">
+			<div class="do-ations">
+				<button mat-raised-button>Do Action</button>
+			</div>
+			<div class="travel">
+				<button mat-raised-button>Travel</button>
+			</div>
+			<div class="see-map">
+				<button mat-raised-button>See Map</button>
+			</div>
+			<div class="sleep">
+				<button mat-raised-button (click)="gameService.startNewDay()">Sleep</button>
+			</div>
+		</div>
 	</div>
 </div>

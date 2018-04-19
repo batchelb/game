@@ -1,4 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="game-holder">
-    <app-start-game></app-start-game>
+<div class="character-info">
+    <div class="middle">
+        <h1>Adventure Battle Life</h1>
+    </div>
+</div>
+<div class="game">
+    <app-world-map></app-world-map>
+</div>
+<!-- <router-outlet></router-outlet> -->
+<div class="night" [class.hidden]="!showNight">
+    <h1 style="color:white">New Day</h1>
 </div>
